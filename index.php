@@ -9,6 +9,7 @@
 		$phone = test_Info($_POST['phone']);
 		$institute = test_Info($_POST['institute']);
 		$ID = test_Info($_POST['ID']);
+		return true;
 	}
 
 	/**
@@ -43,18 +44,33 @@
 		return $data;
 	}
 
+	/**
+	 * [mysql 数据库使用]
+	 * @return [type] [description]
+	 */
+	function mysql() {
+		$name = test_Info($_POST['name']);
+		$gender = test_Info($_POST['gender']);
+		$phone = test_Info($_POST['phone']);
+		$institute = test_Info($_POST['institute']);
+		$stuID = test_Info($_POST['ID']);
+		$connection = mysqli_connect('127.0.0.1', 'root', 'hsy98106', 'demo');
+		if (!$connection) {
+			echo "数据库连接失败！！！";
+			return;
+		}
+		//如果所有必须必须数据均符合要求，添加数据到数据库
+		$add = "insert into studentinfo (id, name, gender, phone, institute, stuID) values (null, '$name', '$gender', '$phone', '$institute', '$stuID');";
+		//执行添加数据
+		$query = mysqli_query($connection, $add);
+		if (!$query) {
+			echo "添加数据失败！";
+		}
+		mysqli_close($connection);		
+	}
+
 	if ($_SERVER['REQUEST_METHOD'] === "POST") {
-		checkInfo();
-		writeInfo();
+			writeInfo();
+			mysql();
 	}
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<div>123</div>
-</body>
-</html>
