@@ -20,8 +20,11 @@
 		$origin = json_decode(file_get_contents("student.json"), true);
 		//向现在的数组添加信息
 		$origin[] = array(
-			"username" => $_POST['username'],
-			"password" => $_POST['pwd']
+			"姓名" => $name,
+			"性别" => $gender,
+			"电话" => $phone,
+			"学院" => $institute,
+			"ID" => $ID
 		);
 		//编码成json文件
 		$json = json_encode($origin);
