@@ -1,0 +1,12 @@
+<!--pages/myself/advice.wxml-->
+<form bindsubmit="submitInfo">
+<view class="text_content">
+	<view>意见与建议</view>
+    <textarea name="advice" value="{{advice_content}}" maxlength="200" placeholder="请填写200个字以内的问题描述以便我们提供更好的帮助"></textarea>
+</view>
+<view class="connect">
+    <view>联系方式 (以便开发者联系你)</view>
+    <input type="text" name="telephone" placeholder="手机号/邮箱（必填）" value="{{advice_telephone}}" />
+</view>
+<button form-type="submit" type="primary">提交</button>
+</form>

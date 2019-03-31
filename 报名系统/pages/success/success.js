@@ -5,7 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-
   },
 
   /**
@@ -20,7 +19,7 @@ Page({
       'institute': list[0].institute,
       'id': list[0].id,
       'phone': list[0].phone,
-      'success_info': '您的信息已经提交成功'
+      'success_info': '亲,我们已经记录下您的信息了呢'
     })
   },
 

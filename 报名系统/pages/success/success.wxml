@@ -1,18 +1,20 @@
 <!--pages/success/success.wxml-->
-<view>我的报名信息</view>
+<view class="container">
+<text class="title">我的报名信息</text>
 <view>
-	姓名：{{name}}
+	<text>姓名：</text><text>{{name}}</text>
 </view>
 <view>
-	性别：{{gender}}
+	<text>性别：</text><text>{{gender}}</text>
 </view>
 <view>
-	学院：{{institute}}
+	<text>学院：</text><text>{{institute}}</text>
 </view>
 <view>
-	学号：{{id}}
+	<text>学号：</text><text>{{id}}</text>
 </view>
 <view>
-	电话号码：{{phone}}
+	<text>电话号码：</text><text>{{phone}}</text>
 </view>
-<view>{{success_info}}</view>
+<view class="tip">{{success_info}}</view>
+</view>

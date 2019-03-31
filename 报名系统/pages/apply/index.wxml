@@ -1,19 +1,22 @@
 <!--pages/apply/index.wxml-->
-<view>羽毛球比赛信息注册</view>
+<view class="info">
+<text class="title">比赛信息注册</text>
 <form bindsubmit="submit">
-	<view>姓名:<input type="text" name="name" value="{{name}}" placeholder="请输入你的姓名"/></view>
 	<radio-group name="gender">
 		<label for="female">男生</label>
 		<radio name="female" value="1" checked="checked"></radio>
 		<label for="male">女生</label>
 		<radio name="male" value="0"></radio>
 	</radio-group>
-	<view>电话号码：<input type="number" name="call" value="{{phone}}" placeholder="请输入你的电话号码" /></view>
+	<view><text>姓名:</text><input type="text" name="name" value="{{name}}" placeholder="请输入你的姓名"/></view>
+	<view><text>电话:</text><input type="number" name="call" value="{{phone}}" placeholder="请输入你的电话号码" /></view>
+	<view><text>学号:</text><input type="number" name="id" value="{{id}}" placeholder="请输入你的学号" /></view>
 	<view>
-		<picker mode="selector" range="{{institutes}}" name="institute" value="{{myInstitute}}" bindchange="showInstitute">选择学院：</picker>
-		<text>{{myInstitute}}</text>
+		<text>学院:</text>
+		<picker mode="selector" range="{{institutes}}" name="institute" value="{{myInstitute}}"  class="institution" bindchange="showInstitute">{{myInstitute}}</picker>
 	</view>
-	<view>学号：<input type="number" name="id" value="{{id}}" placeholder="请输入你的学号" /></view>
-	<button form-type="submit">确认提交</button>
-	<button form-type="reset">清除信息</button>
+	
+	<button form-type="submit" plain="true">确认提交</button>
+	<button form-type="reset" plain="true">清除信息</button>
 </form>
+</view>

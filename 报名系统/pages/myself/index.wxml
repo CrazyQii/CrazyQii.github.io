@@ -1,0 +1,17 @@
+<!--pages/myself/myself.wxml-->
+<swiper class="play" autoplay="true" indicator-dots="true">
+	<swiper-item><image src="../../images/01-4月22日-体育馆副馆-分院杯.JPG"></image></swiper-item>
+	<swiper-item><image src="../../images/02-4月22日-体育馆副馆-分院杯.JPG"></image></swiper-item>
+	<swiper-item><image src="../../images/05-12月3日-体育馆副馆-双弓杯.JPG"></image></swiper-item>
+	<swiper-item><image src="../../images/03-6月3号-主管-羽毛球俱乐部.JPG"></image></swiper-item>
+	<swiper-item><image src="../../images/04-6月20日-体育馆副馆-教职工比赛.jpg"></image></swiper-item>
+</swiper>
+<view class="contain">
+	<view wx:for="{{items}}" wx:key="" class="listStyle" bindtap="{{item.bind}}">
+		<text class="listName">{{item.name}}</text>
+		<text class="listArrow"></text>
+	</view>
+	<view class="listStyle">
+		<text>当前版本  </text><text>  {{version}}</text>
+	</view>
+</view>

@@ -1,14 +1,35 @@
 {
   "pages":[
+    "pages/myself/index",
     "pages/apply/index",
-    "pages/success/success",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/myself/advice",
+    "pages/success/success"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#e6d9c9",
+    "navigationBarBackgroundColor": "#e6d9c9",
+    "navigationBarTitleText": "杭电羽毛球俱乐部",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/apply/index",
+        "text": "报名",
+        "iconPath": "images/首页.png",
+        "selectedIconPath": "images/选中-首页.png"
+      },
+      {
+        "pagePath": "pages/myself/index",
+        "text": "我的",
+        "iconPath": "images/更多.png",
+        "selectedIconPath": "images/选中-更多.png"
+      }
+    ],
+    "color": "#524b4b",
+    "selectedColor": "#cd7060",
+    "borderStyle": "white",
+    "backgroundColor": "#e7e7e7"
   }
 }

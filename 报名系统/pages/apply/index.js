@@ -78,9 +78,8 @@ function getInstitute(num) {
     case "13":  return "材环学院";
     case "14":  return "数字媒体与艺术设计学院";
     case "15":  return "卓越学院";
-    default : return "信息有误！";
+    default : return "选择学院";
   }
-  
 }
 
 Page({
@@ -89,6 +88,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    'myInstitute': '选择学院',
     'institutes': [
       '计算机学院',
       '自动化学院',
@@ -109,6 +109,11 @@ Page({
     ]
   },
 
+  /**
+   * [showInstitute picker展示学院信息]
+   * @param  {[Object]} event [事件对象]
+   * @return {[type]}       [description]
+   */
   showInstitute: function(event) {
     this.setData({
       'myInstitute': getInstitute(event.detail.value)
@@ -130,7 +135,7 @@ Page({
     if (confirmInfo(name, gender, phone, institute, id)) {
         wx.showModal({
         title: '提示',
-        content: '确认信息将不能修改，请慎重',
+        content: '确认提交后信息将不能修改，请慎重',
         cancelText: '重新填写',
         confirmText: '确认提交',
         //查看提交信息
@@ -150,24 +155,32 @@ Page({
                 'content-type': 'application/json'//默认值
               },
               success(res) { //提交成功，显示弹窗
-                  wx.showToast({
-                  title: '成功',
-                  icon: 'success',
-                  duration: 2000
-                })
+                var list = [ //收集用户信息
+                  {
+                  'name': name,
+                  'gender': gender,
+                  'phone': phone,
+                  'institute': institute,
+                  'id': id 
+                  }
+                ]
+                //设置缓存
+                wx.setStorage({
+                  key: 'student',
+                  data: list,
+                  success: function(res) {
+                    console.log("缓存成功");
+                    wx.navigateTo({
+                      url: '../success/success?data=' + JSON.stringify(list)
+                      }),
+                    wx.showToast({
+                      title: '提交成功',
+                      icon: 'success',
+                      duration: 800
+                    })
+                  }
+                })          
               }
-            })  
-            var list = [ //收集用户信息
-              {
-              'name': name,
-              'gender': gender,
-              'phone': phone,
-              'institute': institute,
-              'id': id 
-              }
-            ]
-            wx.navigateTo({
-            url: '../success/success?data=' + JSON.stringify(list)
             })
           }
           else if (res.cancel){
